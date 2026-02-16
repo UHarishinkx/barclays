@@ -1,5 +1,28 @@
 # Pre-Delinquency Intervention Engine
 
+## Latest Model Snapshot
+```
+precision    recall  f1-score   support
+
+			  0       0.97      0.84      0.90     27995
+			  1       0.24      0.70      0.35      2005
+
+	 accuracy                           0.83     30000
+	macro avg       0.61      0.77      0.63     30000
+weighted avg       0.93      0.83      0.86     30000
+
+PR-AUC: 0.3597
+ROC-AUC: 0.8548
+Confusion Matrix:
+ [[23427  4568]
+ [  601  1404]]
+Recall@Top5%: 33.97 %
+Recall@Top10%: 51.77 %
+
+Customer Risk Score: 2.53 %
+Recommended Action: Low risk
+```
+
 ## Why This Exists
 Collections start too late. By the time a payment is missed, recovery is harder, more expensive, and trust is already eroded. This project moves intervention upstream by predicting delinquency risk **2 to 4 weeks early**, using explainable behavioral signals and a simple, action-ready playbook.
 
