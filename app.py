@@ -7,6 +7,9 @@ st.set_page_config(page_title="Pre-Delinquency Intervention Engine", layout="wid
 st.markdown(
     """
     <style>
+    .hero h1, .hero p {
+        color: #ffffff !important;
+    }
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Source+Serif+4:wght@500&display=swap');
     html, body, [class*="css"] {
         font-family: 'IBM Plex Sans', sans-serif;
@@ -27,10 +30,14 @@ st.markdown(
         border-radius: 14px;
         color: #ffffff;
     }
+    .hero * {
+        color: #ffffff !important;
+    }
     .hero h1 {
         font-size: 2.2rem;
         margin-bottom: 0.25rem;
         font-family: 'Source Serif 4', serif;
+        color: #ffffff !important;
     }
     .hero p {
         color: #d6e1f0;
@@ -41,8 +48,12 @@ st.markdown(
         font-weight: 600;
         color: var(--bank-navy);
     }
+    .stApp {
+        color: var(--bank-navy);
+    }
     .stTabs [data-baseweb="tab"] {
         font-weight: 600;
+        color: var(--bank-navy);
     }
     .stTabs [data-baseweb="tab"][aria-selected="true"] {
         color: var(--bank-teal);
@@ -59,21 +70,21 @@ st.markdown(
     }
     .stDataFrame thead tr th,
     .stTable thead tr th {
-        background: #eef3f8;
+        background: #e6eef7;
         color: var(--bank-navy);
     }
     .stDataFrame tbody tr td,
     .stTable tbody tr td {
-        background: #ffffff;
-        color: var(--bank-navy);
+        background: #fdfefe;
+        color: #1c2f4a;
     }
     .stDataFrame tbody tr:nth-child(even) td,
     .stTable tbody tr:nth-child(even) td {
-        background: #f7f9fc;
+        background: #f3f7fb;
     }
     .stDataFrame tbody tr:hover td,
     .stTable tbody tr:hover td {
-        background: #eef6f7;
+        background: #e9f4f5;
     }
     div[data-testid="stMetric"] {
         background: #ffffff;
@@ -88,24 +99,54 @@ st.markdown(
     div[data-testid="stMetric"] div {
         color: var(--bank-navy);
     }
-    div[data-testid="stSidebar"] {
-        background: #f3f6fb;
-        border-right: 1px solid #e4e9f0;
+    div[data-testid="stSidebar"],
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #0b1f3b 0%, #142a4f 100%) !important;
+        border-right: 1px solid #0b1f3b !important;
+    }
+    section[data-testid="stSidebar"] > div,
+    div[data-testid="stSidebar"] > div {
+        background: transparent !important;
     }
     div[data-testid="stSidebar"] h1,
     div[data-testid="stSidebar"] h2,
     div[data-testid="stSidebar"] h3,
     div[data-testid="stSidebar"] label,
-    div[data-testid="stSidebar"] p {
-        color: var(--bank-navy);
+    div[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3,
+    section[data-testid="stSidebar"] label,
+    section[data-testid="stSidebar"] p {
+        color: #ffffff !important;
+    }
+    div[data-testid="stSidebar"] span,
+    section[data-testid="stSidebar"] span {
+        color: #d6e1f0 !important;
+    }
+    div[data-testid="stSidebar"] .stMarkdown,
+    div[data-testid="stSidebar"] .stCaption,
+    section[data-testid="stSidebar"] .stMarkdown,
+    section[data-testid="stSidebar"] .stCaption {
+        color: #d6e1f0 !important;
     }
     div[data-baseweb="slider"] > div > div {
-        background-color: #d6e3ef;
+        background-color: #35507a !important;
     }
     div[data-baseweb="slider"] [role="slider"] {
-        background-color: var(--bank-teal);
-        border: 2px solid #ffffff;
-        box-shadow: 0 0 0 2px rgba(10, 123, 131, 0.2);
+        background-color: #c9a227 !important;
+        border: 2px solid #ffffff !important;
+        box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.3) !important;
+    }
+    div[data-testid="stSidebar"] input,
+    div[data-testid="stSidebar"] select,
+    div[data-testid="stSidebar"] textarea,
+    section[data-testid="stSidebar"] input,
+    section[data-testid="stSidebar"] select,
+    section[data-testid="stSidebar"] textarea {
+        background: #0f2a4d !important;
+        color: #ffffff !important;
+        border: 1px solid #29466f !important;
     }
     </style>
     """,
@@ -114,9 +155,9 @@ st.markdown(
 
 st.markdown(
     """
-    <div class="hero">
-        <h1>Pre-Delinquency Intervention Engine</h1>
-        <p>Early warning signals, clear drivers, and simple playbooks before a payment is missed.</p>
+    <div class="hero" style="background:linear-gradient(120deg, #0b1f3b, #142a4f); color:#ffffff;">
+        <h1 style="color:#ffffff !important;">Pre-Delinquency Intervention Engine</h1>
+        <p style="color:#ffffff !important;">Early warning signals, clear drivers, and simple playbooks before a payment is missed.</p>
     </div>
     """,
     unsafe_allow_html=True,
