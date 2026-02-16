@@ -19,11 +19,6 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Model artifacts
-model.pkl
-artifacts.pkl
-features.pkl
-
 # Logs
 *.log
 
