@@ -1,30 +1,32 @@
 # Pre-Delinquency Intervention Engine
 
-## Overview
-Banks usually intervene only after a missed payment, when recovery is expensive and customer trust is already damaged. This project predicts delinquency risk 2 to 4 weeks earlier by detecting subtle stress signals in customer credit behavior. It produces explainable risk drivers and triggers proactive, empathetic interventions (payment holiday, nudges, monitoring).
+## Why This Exists
+Collections start too late. By the time a payment is missed, recovery is harder, more expensive, and trust is already eroded. This project moves intervention upstream by predicting delinquency risk **2 to 4 weeks early**, using explainable behavioral signals and a simple, action-ready playbook.
 
-## What the System Does
-- Detects early stress signals before delinquency.
-- Scores customers with a predictive model built on engineered behavioral features.
-- Uses data-driven thresholds to balance recall and precision.
-- Surfaces explainable drivers and an intervention playbook in a dashboard.
+## What You Get
+- Early warning risk scores for every customer
+- Explainable stress signals (not a black box)
+- Data-driven thresholds aligned to outreach capacity
+- A dashboard that connects risk, reason, and action
 
-## Key Signals and Features
-The model derives structured indicators from the source credit dataset, including:
+## How It Works (Plain English)
+1. **Clean + standardize** the credit dataset.
+2. **Engineer stress signals** like late severity, utilization spikes, and income fragility.
+3. **Train an XGBoost model** with imbalance handling (SMOTE).
+4. **Pick a threshold** that hits a target recall so the team catches most at-risk customers.
+5. **Deploy into Streamlit** with explainable drivers and intervention playbooks.
+
+## Signals We Surface
 - Late severity and missed payment ratios
 - Income fragility (dependents vs income)
 - Utilization spike and thin credit file flags
-- A single stress index combining normalized components
+- A single **stress index** that blends normalized signals
 
-## Model and Metrics
-- Model: XGBoost (well-suited for tabular credit risk data)
-- Class imbalance: SMOTE during training
-- Thresholding: chosen to meet a target recall for early detection
-- Reported metrics:
-  - Precision, recall, F1
-  - PR-AUC and ROC-AUC
-  - Confusion matrix
-  - Recall at top K percent (capacity-based outreach)
+## Model Trust and Evaluation
+- **PR-AUC and ROC-AUC** for ranking quality
+- **Recall@Top-K** to match outreach capacity
+- **Confusion matrix** for transparency on false positives
+- **Target recall** ensures early detection is prioritized
 
 ## Repository Structure
 - app.py: Streamlit dashboard for risk insights and interventions
@@ -32,9 +34,7 @@ The model derives structured indicators from the source credit dataset, includin
 - requirements.txt: Python dependencies
 - data/cs-training.csv: Source dataset
 
-## How to Run
-Create a virtual environment, install dependencies, train the model, then run the dashboard.
-
+## Quickstart
 ```powershell
 Set-Location -Path f:/barclays_hackathon/barclays
 python -m venv .venv
@@ -49,11 +49,11 @@ python -m venv .venv
 - Customer explorer with local driver explanation
 - Intervention playbook by risk tier
 
-## Why It Is Industry-Ready
-- Explainable, transparent risk signals for compliance
-- Early intervention focus to reduce losses and collections cost
-- Scalable design for real-time scoring and outreach
-- Metrics aligned to business constraints (top-K recall)
+## Why This Is Industry-Ready
+- Explainable, transparent signals support compliance and fairness
+- Early intervention reduces losses and collections cost
+- Scalable approach for real-time scoring and outreach
+- Metrics align with real-world capacity constraints
 
 ## Notes
 - Model artifacts are generated during training and intentionally excluded from version control.
